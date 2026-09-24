@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robot-vision-nav-lab"
+version = "0.1.0"
+description = "Runnable learning projects for robot perception, localization, and planning"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = [
+  "numpy>=1.21,<3",
+  "matplotlib>=3.5,<4",
+]
+
+[project.optional-dependencies]
+modern-vision = [
+  "opencv-python>=4.8,<5",
+  "ultralytics==8.4.161",
+]
+dev = [
+  "pytest>=7,<9",
+]
+
+[tool.setuptools.packages.find]
+include = ["robotlab*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,35 @@
+name: learncv-robotics
+
+x-robotics-image: &robotics-image
+  image: learncv/robotics-jazzy:2026-09-24
+  build:
+    context: .
+    dockerfile: docker/Dockerfile
+    args:
+      ROS_APT_MIRROR: ${ROS_APT_MIRROR:-}
+  init: true
+  environment:
+    ROS_DOMAIN_ID: "42"
+  shm_size: 2gb
+
+services:
+  algorithm-demo:
+    <<: *robotics-image
+    command: ["ros2", "launch", "robot_lab_demo", "astar_demo.launch.py"]
+
+  nav2-headless:
+    <<: *robotics-image
+    profiles: ["sim"]
+    command:
+      - ros2
+      - launch
+      - nav2_bringup
+      - tb3_simulation_launch.py
+      - headless:=True
+      - use_rviz:=False
+      - autostart:=True
+    volumes:
+      - gazebo-cache:/root/.gz
+
+volumes:
+  gazebo-cache:

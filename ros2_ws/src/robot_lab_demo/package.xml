@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>robot_lab_demo</name>
+  <version>0.1.0</version>
+  <description>Publishes a deterministic occupancy grid and A-star path.</description>
+  <maintainer email="learner@example.com">LearnCV learner</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

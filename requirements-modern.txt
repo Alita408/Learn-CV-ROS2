@@ -1,0 +1,3 @@
+# Optional project 08: modern detector inference. Core projects do not need these.
+opencv-python>=4.8,<5
+ultralytics==8.4.161
